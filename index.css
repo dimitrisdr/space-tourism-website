@@ -9,20 +9,51 @@
     --clr-white: 0 0% 100%;
     
     /* font-sizes */
-    --fs-900: 9.375rem;
-    --fs-800: 6.25rem;
-    --fs-700: 3.5rem;
+
+    --fs-900: 5rem;
+    --fs-800: 3.5rem;
+    --fs-700: 2rem;
     --fs-600: 2rem;
-    --fs-500: 1.75rem;
-    --fs-400: 1.125rem;
-    --fs-300: 1rem;
-    --fs-200: 0.875rem;
+    --fs-500: 1.125rem;
+    --fs-400: 1rem;
+    --fs-300:0.875rem ;
+    --fs-200: 0.925rem;
+    --fs-100:1.125rem
     
     /* font-families */
     --ff-serif: "Bellefair", serif;
     --ff-sans-cond: "Barlow Condensed", sans-serif;
     --ff-sans-normal: "Barlow", sans-serif;
 }
+
+
+@media (min-width: 35em) {
+    :root {
+        --fs-900:clamp(5rem, 10vw + 1rem, 9rem);
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 2rem;
+        --fs-500: 1.125rem;
+        --fs-100:1rem
+    }
+}
+
+@media (min-width: 45em) {
+    :root {
+        /* font-sizes */
+
+        --fs-800: 6rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
+        --fs-500: 1.75rem;
+        --fs-400: 1.125rem;
+        --fs-300:0.875rem ;
+        --fs-200: 1rem;
+        --fs-100:1.125rem
+
+    }
+}
+
 
 
 /* ------------------- */
@@ -62,6 +93,7 @@ p {
     font-weight: 400;
 }
 
+
 /* set up the body */
 body {
     font-family: var(--ff-sans-normal);
@@ -73,6 +105,15 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    grid-template-rows: auto 1fr;
+}
+
+.logo-container {
+    background-color: rebeccapurple;
+}
+
+.navbar {
+    background-color: red;
 }
 
 /* make images easier to work with */
@@ -135,6 +176,10 @@ li {
     max-width: 80rem;
 }
 
+.d-block {
+    display: block;
+}
+
 .sr-only {
   position: absolute; 
   width: 1px;
@@ -191,15 +236,43 @@ li {
 
 
 .header {
-    --gap:2rem;
+    --gap:1.5rem;
     align-items:center;
     justify-content: space-between;
+    padding: 0 1.5rem;
+    position: relative;
 }
 
+.navbar {
+    backdrop-filter: blur(2rem);
+    padding: 1.5rem;
+}
 
 .primary-navigation span {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     font-weight: 600;
+}
+
+.main {
+    text-align: center;
+}
+
+.main__content {
+    --gap:2rem;
+    max-width: 45ch;
+    margin-inline: auto;
+    align-content: flex-start;
+}
+
+.btn-container {
+    align-self: center;
+}
+
+.circled-btn {
+    padding: 3rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    align-self: center;
 }
 
 @media screen and (max-width:34.999em) {
@@ -215,8 +288,9 @@ li {
         aspect-ratio: 1;
         position: absolute;
         z-index: 1000;
-        right: 2rem;
-        top: 2rem;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .navbar {
@@ -224,23 +298,27 @@ li {
         top: 0;
         right: 0;
         height: 100%;
-        width: min(50%, 450px);
+        width: min(60%, 400px);
         backdrop-filter: blur(2rem);
-        padding: 6rem 2rem;
-        opacity: 0;
+        padding: 6rem 0;
+        /* opacity: 0; */
         transform: translateX(100%);
         transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
     }
 
     .navbar[aria-expanded="true"] {
-        opacity: 1;
+        /* opacity: 1; */
         transform: translateX(0);
-        transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+        transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
     }
 
     .primary-navigation {
         line-height: 2;
         flex-direction: column;
+    }
+
+    .circled-btn {
+        align-self: flex-start;
     }
 }
 
@@ -266,7 +344,17 @@ li {
     body {
         background-image: url('starter-code/assets/home/background-home-desktop.jpg');
     }
+
+    .main {
+        grid-template-columns: repeat(2, 1fr);
+        align-content: space-between;
+        justify-content: space-between;
+        align-self: flex-end;
+        margin-bottom: 4rem;
+    }
 }
+
+
 
 
 

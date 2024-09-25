@@ -15,11 +15,11 @@
     <script src="index.js" defer></script>
   <title>Frontend Mentor | Space tourism website</title>
 </head>
-<body>
+<body class="grid">
 
   <header class="header flex">
     <div class="logo-container">
-      <img src="starter-code\assets\shared\logo.svg" alt="logo imaga" class="img logo-img">
+      <img src="starter-code\assets\shared\logo.svg" alt="logo image" class="img logo-img">
     </div>
     <button class="btn menu-btn bg-dark" aria-controls="nav"><span class="sr-only">menu button</span></button>
     <nav class="navbar" id="nav" aria-expanded="false">
@@ -31,16 +31,18 @@
       </ul>
     </nav>
   </header>
-  <main class="main">
-    <div class="main__content">
-      <h1 class="main-header">So, you want to travel to <span>Space</span></h1>
-      <p class="main__description">
+  <main class="main grid">
+    <div class="main__content grid">
+      <h1 class="main-header text-accent fs-500 uppercase letter-spacing-2">So, you want to travel to <span class="d-block text-white fs-900 letter-spacing-1">Space</span></h1>
+      <p class="main__description text-accent">
         Let’s face it; if you want to go to space, you might as well genuinely go to 
         outer space and not hover kind of on the edge of it. Well sit back, and relax 
         because we’ll give you a truly out of this world experience!
       </p>
     </div>
-    <button class="btn circled-btn">Explore</button>
+    <div class="btn-container">
+      <button class="btn circled-btn fs-500 text-dark letter-spacing-3 uppercase">Explore</button>
+    </div>
   </main>
     
 </body>
