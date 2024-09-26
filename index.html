@@ -21,7 +21,7 @@
     <div class="logo-container">
       <img src="starter-code\assets\shared\logo.svg" alt="logo image" class="img logo-img">
     </div>
-    <button class="btn menu-btn bg-dark" aria-controls="nav"><span class="sr-only">menu button</span></button>
+    <button class="btn menu-btn bg-dark" data-opened="false" aria-controls="nav"><span class="sr-only">menu button</span></button>
     <nav class="navbar" id="nav" aria-expanded="false">
       <ul class="primary-navigation flex">
         <li class="primary-navigation__item text-white uppercase"><span>00</span>Home</li>
@@ -32,7 +32,7 @@
     </nav>
   </header>
   <main class="main grid">
-    <div class="grid-container grid">
+    <div class="grid-container">
       <h1 class="main-header text-accent fs-500 uppercase letter-spacing-2">So, you want to travel to <span class="d-block text-white fs-900 letter-spacing-1">Space</span></h1>
       <p class="main__description text-accent">
         Let’s face it; if you want to go to space, you might as well genuinely go to 

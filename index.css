@@ -231,11 +231,9 @@ li {
     font-size: var(--fs-400);
     color: hsl( var(--clr-white) );
     background-color: hsl( var(--clr-dark) );
-    line-height: 1.5;
-    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: bottom center;
     display: grid;
     grid-template-rows: auto 1fr;
 }
@@ -244,7 +242,7 @@ li {
     --gap:1.5rem;
     align-items:center;
     justify-content: space-between;
-    padding: 0 1.5rem;
+    padding: 1.5rem;
     position: relative;
 }
 
@@ -278,7 +276,6 @@ li {
     aspect-ratio: 1;
     border-radius: 50%;
     position: relative;
-    /* z-index: 1; */
 }
 
 .large-btn::after {
@@ -299,11 +296,7 @@ li {
     transform: scale(1.3);
 }
 
-@media screen and (max-width:34.999em) {
-
-    body {
-        background-image: url('starter-code/assets/home/background-home-mobile.jpg');
-    }
+@media screen and (max-width:38.999em) {
 
     .menu-btn {
         background-image: url('starter-code/assets/shared/icon-hamburger.svg');
@@ -311,17 +304,22 @@ li {
         width: 1.5rem;
         aspect-ratio: 1;
         position: absolute;
-        z-index: 1000;
+        z-index: 10000;
         right: 1.5rem;
         top: 50%;
         transform: translateY(-50%);
     }
 
+    .menu-btn[data-opened="true"] {
+        background-image: url('starter-code/assets/shared/icon-close.svg');
+    }
+    
     .navbar {
         position: fixed;
         top: 0;
         right: 0;
         height: 100%;
+        z-index: 1000;
         width: min(60%, 400px);
         backdrop-filter: blur(2rem);
         padding: 6rem 0;
@@ -330,7 +328,6 @@ li {
     }
 
     .navbar[aria-expanded="true"] {
-
         transform: translateX(0);
         transition: transform 0.4s ease-in-out;
     }
@@ -346,26 +343,18 @@ li {
 }
 
 
-@media screen and (min-width:35em) {
+@media screen and (min-width:39em) {
     .menu-btn {
         display: none;
     }
 
-    body {
-        background-image: url('starter-code/assets/home/background-home-tablet.jpg');
-
-    }
 }
 
 
-@media screen and (min-width:45em) {
+@media screen and (min-width:54em) {
 
     .menu-btn {
         display: none;
-    }
-
-    body {
-        background-image: url('starter-code/assets/home/background-home-desktop.jpg');
     }
 
     .main {
@@ -384,6 +373,32 @@ li {
     }
 }
 
+/* only for images change */
+
+@media screen and (max-width:34.999em) {
+
+    body {
+        background-image: url('starter-code/assets/home/background-home-mobile.jpg');
+    }
+
+}
+
+@media screen and (min-width:35em) {
+
+    body {
+        background-image: url('starter-code/assets/home/background-home-tablet.jpg');
+
+    }
+
+}
+
+@media screen and (min-width:45em) {
+
+    body {
+        background-image: url('starter-code/assets/home/background-home-desktop.jpg');
+    }
+
+}
 
 
 
