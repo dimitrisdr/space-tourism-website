@@ -13,7 +13,7 @@
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
-    --fs-500: 1.75rem;
+    --fs-500: 1.125rem;
     --fs-400: 0.9375rem;
     --fs-300: 1rem;
     --fs-200: 0.875rem;
@@ -228,11 +228,18 @@ li {
     align-items:center;
     justify-content: space-between;
     position: relative;
+    padding-block: 1.5rem;
 }
 
 .navbar {
     backdrop-filter: blur(2rem);
     padding-inline: 1rem;
+    flex-grow: 0.2;
+}
+
+.primary-navigation {
+    justify-content: center;
+    gap: clamp(1.5rem, 5vw, 3rem); 
 }
 
 .primary-navigation__item {
@@ -244,6 +251,7 @@ li {
     border-bottom: 2px solid hsl(var(--clr-white));
 }
 
+
 .numbered-title {
     font-weight: 600;
     margin-right: 0.2rem;
@@ -252,12 +260,14 @@ li {
 .main {
     text-align: center;
     place-items: center;
+    margin-bottom: 2rem;
 }
 
 .grid-container {
     display: grid;
     max-width: 50ch;
     padding: 1rem;
+    gap: 1.5rem;
 }
 
 .btn-container {
