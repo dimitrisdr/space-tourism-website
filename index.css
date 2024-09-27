@@ -425,7 +425,7 @@ li {
 
     .main--destination {
         grid-template-areas: '. header-d header-d .' '. img-d content-d .';
-        gap: 2rem;
+        gap: 4rem;
         align-self: center;
     }
 
