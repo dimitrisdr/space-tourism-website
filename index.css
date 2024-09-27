@@ -454,9 +454,9 @@ li {
     }
 
 
-    /* .grid-container {
+    .grid-container--home {
         grid-column: 2;
-    } */
+    }
 
     .btn-container {
         grid-column: 3;
