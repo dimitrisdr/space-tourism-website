@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font families -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+    <!-- front end mentor -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <!-- custom style -->
+    <link rel="stylesheet" href="index.css">
+    <!-- js -->
+    <script src="index.js" defer></script>
+    <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body class="destination">
+    <header class="header flex">
+        <div class="logo-container">
+            <img src="starter-code\assets\shared\logo.svg" alt="logo image" class="img logo-img">
+        </div>
+        <button class="btn menu-btn bg-dark" data-opened="false" aria-controls="nav"><span class="sr-only">menu button</span></button>
+        <hr class="row" aria-hidden="true">
+        <nav class="navbar" id="nav" aria-expanded="false">
+            <ul class="primary-navigation flex">
+                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">00 </span>Home</li>
+                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">01 </span>Destination</li>
+                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">02 </span>Crew</li>
+                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">03 </span>Technology</li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main main--destination grid">
+        <h1 class="main-header main-header--destination text-accent fs-500 uppercase letter-spacing-2">01 Pick your destination</h1>
+        <div class="img-container img-container--destination">
+            <img src="starter-code\assets\destination\image-moon.png" alt="moon" class="img">
+        </div>
+        <article class="grid-container grid-container--destination" aria-labelledby="destination-title">
+            <ul class="secondary-navigation flex text-accent letter-spacing-3">
+                <li class="secondary-navigation__item text-white uppercase">Moon</li>
+                <li class="secondary-navigation__item text-white uppercase">Mars</li>
+                <li class="secondary-navigation__item text-white uppercase">Europa</li>
+                <li class="secondary-navigation__item text-white uppercase">Titan</li>
+            </ul>
+            <h2 id="destination-title" class="secondary-title fs-700 text-white uppercase letter-spacing-3 ff-serif">Moon</h2>
+            <p class="main__description main__description--destination text-accent">
+                See our planet as you’ve never seen it before. A perfect relaxing trip away to help   
+                regain perspective and come back refreshed. While you’re there, take in some history 
+                by visiting the Luna 2 and Apollo 11 landing sites.
+            </p>
+            <div class="information-container uppercase flex">
+                <div class="information-item flex">
+                    <span class="info-text text-accent fs-200">Avg. distance</span>
+                    <span class="info-text text-white fs-600 ff-serif">384,400 km</span>
+                </div>
+                <div class="information-item flex">
+                    <span class="info-text text-accent fs-200">Est. travel time</span>
+                    <span class="info-text text-white fs-600 ff-serif">3 days</span>
+                </div>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
+
+

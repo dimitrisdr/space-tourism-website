@@ -38,11 +38,10 @@
         /* font-sizes */
         --fs-800: 6.25rem;
         --fs-700: 3.5rem;
-        --fs-600: 2rem;
+        --fs-600: 1.7rem;
         --fs-400: 1.125rem;
     }
 }
-
 
 /* ------------------- */
 /* Reset               */
@@ -51,6 +50,7 @@
 /* https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing */
+
 *,
 *::before,
 *::after {
@@ -84,6 +84,7 @@ p {
 
 
 /* set up the body */
+
 body {
     line-height: 1.5;
     min-height: 100vh;
@@ -111,6 +112,7 @@ li {
 /* remove animations for people who've turned them off */
 
 @media (prefers-reduced-motion: reduce) {  
+
   *,
   *::before,
   *::after {
@@ -119,8 +121,8 @@ li {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
 
+}
 
 /* ------------------- */
 /* Utility classes     */
@@ -198,7 +200,6 @@ li {
 .fs-400 { font-size: var(--fs-400); }
 .fs-300 { font-size: var(--fs-300); }
 .fs-200 { font-size: var(--fs-200); }
-
 .fs-900,
 .fs-800,
 .fs-700,
@@ -210,7 +211,7 @@ li {
 /* Compontents         */
 /* ------------------- */
 
-.home {
+.home, .destination {
     font-family: var(--ff-sans-normal);
     font-size: var(--fs-400);
     color: hsl( var(--clr-white) );
@@ -241,14 +242,22 @@ li {
     gap: clamp(1.5rem, 5vw, 3rem); 
 }
 
-.primary-navigation__item {
+
+.primary-navigation__item, .secondary-navigation__item {
     padding-block: 1.5rem;
     border-bottom: 2px solid transparent;
 }
 
-.primary-navigation__item:hover {
+
+.primary-navigation__item:hover, .secondary-navigation__item:hover {
     border-bottom: 2px solid hsl(var(--clr-white));
 }
+
+
+.secondary-navigation {
+    margin-inline: auto;
+}
+
 
 .row {
     display: none;
@@ -271,6 +280,28 @@ li {
     padding: 1rem;
     gap: 1.5rem;
 }
+
+.main__description--destination {
+    border-bottom: 1px solid hsl( var(--clr-white) / .45);
+    padding-bottom: 1rem;
+}
+
+.img-container--destination {
+    margin-inline: 1.5rem;
+}
+
+.information-container {
+    flex-direction: column;
+    justify-content: center;
+    --gap: 1.5rem;
+}
+
+.information-item {
+    --gap:0.5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .btn-container {
     align-self: center;
@@ -349,12 +380,17 @@ li {
 
 
 @media screen and (min-width:35em) {
+
     .numbered-title {
         display: none;
     }
 
     .menu-btn {
         display: none;
+    }
+
+    .information-container {
+        flex-direction: row;
     }
 
 }
@@ -372,10 +408,6 @@ li {
         left: 1rem;
     }
 
-    /* .navbar {
-        background-color: red;
-    } */
-
     .numbered-title {
         display: unset;
     }
@@ -391,12 +423,47 @@ li {
         margin-bottom: 4rem;
     }
 
-    .grid-container {
-        grid-column: 2;
+    .main--destination {
+        grid-template-areas: '. header-d header-d .' '. img-d content-d .';
+        gap: 2rem;
+        align-self: center;
     }
+
+    .main-header--destination {
+        grid-area: header-d;
+        justify-self: flex-start;
+    }
+
+    .information-container {
+        justify-content: flex-start;
+        gap: 3.5rem;
+    }
+
+    .information-item {
+        align-items: flex-start;
+    }
+
+    .img-container--destination {
+        grid-area: img-d;
+    }
+
+
+    .grid-container--destination {
+        grid-area: content-d;
+        text-align: left;
+    }
+
+
+    /* .grid-container {
+        grid-column: 2;
+    } */
 
     .btn-container {
         grid-column: 3;
+    }
+
+    .secondary-navigation {
+        margin-inline: unset;
     }
 }
 
@@ -404,25 +471,36 @@ li {
 
 @media screen and (max-width:34.999em) {
 
-    body {
+    .home {
         background-image: url('starter-code/assets/home/background-home-mobile.jpg');
     }
 
+    .destination {
+        background-image: url('starter-code/assets/destination/background-destination-mobile.jpg');
+    }
 }
 
 @media screen and (min-width:35em) {
 
-    body {
+    .home {
         background-image: url('starter-code/assets/home/background-home-tablet.jpg');
 
+    }
+
+    .destination {
+        background-image: url('starter-code/assets/destination/background-destination-tablet.jpg');
     }
 
 }
 
 @media screen and (min-width:45em) {
 
-    body {
+    .home {
         background-image: url('starter-code/assets/home/background-home-desktop.jpg');
+    }
+
+    .destination {
+        background-image: url('starter-code/assets/destination/background-destination-desktop.jpg');
     }
 
 }
