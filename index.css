@@ -26,7 +26,6 @@
 
 @media (min-width: 35em) {
     :root {
-        
         --fs-800: 5rem;
         --fs-700: 2.5rem;
         --fs-600: 1.5rem;
@@ -224,7 +223,7 @@ li {
 }
 
 .header {
-    --gap:1.5rem;
+    --gap:0;
     align-items:center;
     justify-content: space-between;
     position: relative;
@@ -251,6 +250,9 @@ li {
     border-bottom: 2px solid hsl(var(--clr-white));
 }
 
+.row {
+    display: none;
+}
 
 .numbered-title {
     font-weight: 600;
@@ -359,6 +361,20 @@ li {
 
 
 @media screen and (min-width:45em) {
+
+    .row {
+        display: unset;
+        background-color: rgba(255, 255, 255, 0.014);
+        height: 1px;
+        flex-grow: 1;
+        z-index: 1000;
+        position: relative;
+        left: 1rem;
+    }
+
+    /* .navbar {
+        background-color: red;
+    } */
 
     .numbered-title {
         display: unset;
