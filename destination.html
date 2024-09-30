@@ -24,10 +24,10 @@
         <hr class="row" aria-hidden="true">
         <nav class="navbar" id="nav" aria-expanded="false">
             <ul class="primary-navigation flex">
-                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">00 </span>Home</li>
-                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">01 </span>Destination</li>
-                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">02 </span>Crew</li>
-                <li class="primary-navigation__item text-white uppercase"><span class="numbered-title">03 </span>Technology</li>
+                <li class="primary-navigation__item text-white uppercase"><button><span class="numbered-title">00 </span>Home</button></li>
+                <li class="primary-navigation__item text-white uppercase"><button><span class="numbered-title">01 </span>Destination</button></li>
+                <li class="primary-navigation__item text-white uppercase"><button><span class="numbered-title">02 </span>Crew</button></li>
+                <li class="primary-navigation__item text-white uppercase"><button><span class="numbered-title">03 </span>Technology</button></li>
             </ul>
         </nav>
     </header>
@@ -37,12 +37,12 @@
             <img src="starter-code\assets\destination\image-moon.png" alt="moon" class="img">
         </div>
         <article class="grid-container grid-container--destination" aria-labelledby="destination-title">
-            <ul class="secondary-navigation flex text-accent letter-spacing-3">
-                <li class="secondary-navigation__item text-white uppercase">Moon</li>
-                <li class="secondary-navigation__item text-white uppercase">Mars</li>
-                <li class="secondary-navigation__item text-white uppercase">Europa</li>
-                <li class="secondary-navigation__item text-white uppercase">Titan</li>
-            </ul>
+            <div role="tablist" aria-label="destination links" class="secondary-navigation flex text-accent letter-spacing-3">
+                <button role="tab" tabindex="0" class="secondary-navigation__item text-white uppercase">Moon</button>
+                <button role="tab" tabindex="-1" class="secondary-navigation__item text-white uppercase">Mars</button>
+                <button role="tab" tabindex="-1" class="secondary-navigation__item text-white uppercase">Europa</button>
+                <button role="tab" tabindex="-1" class="secondary-navigation__item text-white uppercase">Titan</button>
+            </div>
             <h2 id="destination-title" class="secondary-title fs-700 text-white uppercase letter-spacing-3 ff-serif">Moon</h2>
             <p class="main__description main__description--destination text-accent">
                 See our planet as you’ve never seen it before. A perfect relaxing trip away to help   

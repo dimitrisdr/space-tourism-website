@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font families -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+    <!-- front end mentor -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <!-- custom style -->
+    <link rel="stylesheet" href="index.css">
+    <!-- js -->
+    <script src="index.js" defer></script>
+    <title>Frontend Mentor | Space tourism website</title>
+</head>
+<body class="tech">
+    <header class="header flex">
+        <div class="logo-container">
+            <img src="starter-code\assets\shared\logo.svg" alt="logo image" class="img logo-img">
+        </div>
+        <button class="btn menu-btn bg-dark" data-opened="false" aria-controls="nav"><span class="sr-only">menu button</span></button>
+        <hr class="row" aria-hidden="true">
+        <nav class="navbar" id="nav" aria-expanded="false">
+            <ul class="primary-navigation flex">
+                <li class="primary-navigation__item text-white uppercase"><button tabindex="0"><span class="numbered-title">00 </span>Home</button></li>
+                <li class="primary-navigation__item text-white uppercase"><button tabindex="-1"><span class="numbered-title">01 </span>Destination</button></li>
+                <li class="primary-navigation__item text-white uppercase"><button tabindex="-1"><span class="numbered-title">02 </span>Crew</button></li>
+                <li class="primary-navigation__item text-white uppercase"><button tabindex="-1"><span class="numbered-title">03 </span>Technology</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main main--tech grid">
+        <h1 class="main-header main-header--tech text-white fs-500 uppercase letter-spacing-2"><span class="numbered-title text-accent">03</span> Space launch 101</h1>
+
+        <picture class="tech-pic img-container--tech">
+            <source srcset="starter-code\assets\technology\image-launch-vehicle-portrait.jpg" media="(min-width:45em)">
+            <img src="starter-code\assets\technology\image-launch-vehicle-landscape.jpg" alt="Commander" class="img">
+        </picture>
+        
+        <div class="number-indicators flex">
+            <button aria-selected="true" class="number-indicators-item bg-dark text-white fs-500 ">1</button>
+            <button aria-selected="false" class="number-indicators-item bg-dark text-white fs-500 ">2</button>
+            <button aria-selected="false" class="number-indicators-item bg-dark text-white fs-500 ">3</button>
+        </div>
+
+        <article class="grid-container grid-container--tech" aria-labelledby="tech-title">
+            <h2 class="main-header text-accent fs-500 uppercase ff-serif  letter-spacing-2">The terminology...<span class="d-block text-white fs-700 letter-spacing-1">Launch vehicle</span></h2>
+            <p class="main__description main__description--tech text-accent">
+                A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a 
+                payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
+                WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 
+                it's quite an awe-inspiring sight on the launch pad!
+            </p>  
+        </article>
+    </main>
+</body>
+</html>
+
+
+
+
+
