@@ -37,8 +37,8 @@
     :root {
         /* font-sizes */
         --fs-800: 6.25rem;
-        --fs-700: 2.5rem;
-        --fs-600: 1.7rem;
+        --fs-700: 3.5rem;
+        --fs-600: 2rem;
         --fs-400: 1.125rem;
     }
 }
@@ -250,11 +250,16 @@ li {
     color: inherit;
 }
 
-
-
 .primary-navigation__item, .secondary-navigation__item {
-    padding-block: 1.5rem;
     border-bottom: 2px solid transparent;
+}
+
+.primary-navigation__item{
+    padding-block: 1.5rem;
+}
+
+.secondary-navigation__item {
+    padding-block: .825rem;
 }
 
 
