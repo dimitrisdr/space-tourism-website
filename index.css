@@ -266,15 +266,16 @@ li {
     color: lime;
 }
 
-.primary-navigation__item:hover, .secondary-navigation__item:hover {
+.primary-navigation__item:hover, 
+.primary-navigation__item:focus, 
+.secondary-navigation__item:hover, 
+.secondary-navigation__item:focus {
     border-bottom: 2px solid hsl(var(--clr-white));
 }
-
 
 .secondary-navigation {
     margin-inline: auto;
 }
-
 
 .row {
     display: none;

@@ -6,3 +6,9 @@ menuBtn.addEventListener('click', ()=> {
     nav.setAttribute('aria-expanded', isNavExpanded)
     menuBtn.setAttribute('data-opened', isNavExpanded)
 })
+
+function fetchContent() {
+    fetch('starter-code/data.json').then(response => response.json()).then(data => console.log(data))
+}
+
+fetchContent()
