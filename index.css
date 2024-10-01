@@ -262,6 +262,9 @@ li {
     padding-block: .825rem;
 }
 
+.secondary-navigation__item:focus {
+    color: lime;
+}
 
 .primary-navigation__item:hover, .secondary-navigation__item:hover {
     border-bottom: 2px solid hsl(var(--clr-white));
