@@ -250,6 +250,8 @@ li {
     color: inherit;
 }
 
+
+
 .primary-navigation__item, .secondary-navigation__item {
     border-bottom: 2px solid transparent;
 }
@@ -259,6 +261,7 @@ li {
 }
 
 .secondary-navigation__item {
+
     padding-block: .825rem;
 }
 
@@ -275,6 +278,7 @@ li {
 
 .secondary-navigation {
     margin-inline: auto;
+    --gap:2rem
 }
 
 .row {
@@ -346,6 +350,7 @@ li {
     aspect-ratio: 1;
     border-radius: 50%;
     position: relative;
+    background-color: hsl( var(--clr-white) );
 }
 
 .large-btn::after {
