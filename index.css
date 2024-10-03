@@ -11,7 +11,7 @@
     /* font-sizes */
     --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
     --fs-800: 3.5rem;
-    --fs-700: 1.5rem;
+    --fs-700: 2rem;
     --fs-600: 1rem;
     --fs-500: 1.125rem;
     --fs-400: 0.9375rem;
@@ -374,7 +374,7 @@ li {
 
 .dot-indicators-item {
     background-color: hsl( var(--clr-white) / .15);
-    width: 0.5rem;
+    width: 1rem;
     aspect-ratio: 1;
     border-radius: 50%;
     cursor: pointer;
