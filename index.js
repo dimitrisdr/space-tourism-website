@@ -24,7 +24,7 @@ async function loadComponent(compName) {
         mainToLoad.className = `main main--${compName} grid`
         mainToLoad.innerHTML = thiscomponent
         body.appendChild(mainToLoad)
-        let secondaryNavItems = body.querySelectorAll('.secondary-navigation__item')
+        let secondaryNavItems = body.querySelectorAll('[role="tablist"]')
         if (!secondaryNavItems) return
         secondaryNavItems.forEach(item => item.addEventListener('click', handleSecondaryNavItems))
 
