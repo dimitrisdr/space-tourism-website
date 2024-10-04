@@ -7,15 +7,15 @@
         <img src="starter-code\assets\technology\image-launch-vehicle-landscape.jpg" alt="Commander" class="img">
     </picture>
     
-    <div class="number-indicators flex">
-        <button aria-selected="true" class="number-indicators-item bg-dark text-white fs-500 ">1</button>
-        <button aria-selected="false" class="number-indicators-item bg-dark text-white fs-500 ">2</button>
-        <button aria-selected="false" class="number-indicators-item bg-dark text-white fs-500 ">3</button>
+    <div data-cat="tech" role="tablist" class="number-indicators flex">
+        <button data-name="Launch vehicle" aria-selected="true" role="tab" class="number-indicators-item bg-dark text-white fs-500 ">1</button>
+        <button data-name="Spaceport"  aria-selected="false" role="tab" class="number-indicators-item bg-dark text-white fs-500 ">2</button>
+        <button data-name="Space capsule"  aria-selected="false" role="tab" class="number-indicators-item bg-dark text-white fs-500 ">3</button>
     </div>
 
     <article class="grid-container grid-container--tech" aria-labelledby="tech-title">
-        <h2 class="main-header text-accent fs-500 uppercase ff-serif  letter-spacing-2">The terminology...<span class="d-block text-white fs-700 letter-spacing-1">Launch vehicle</span></h2>
-        <p class="main__description main__description--tech text-accent">
+        <h2 class="main-header text-accent fs-500 uppercase ff-serif  letter-spacing-2">The terminology...<span data-name="name" class="d-block text-white fs-700 letter-spacing-1">Launch vehicle</span></h2>
+        <p data-name="description" class="main__description main__description--tech text-accent">
             A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a 
             payload from Earth's surface to space, usually to Earth orbit or beyond. Our 
             WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, 

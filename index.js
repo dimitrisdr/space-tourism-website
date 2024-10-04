@@ -1,7 +1,8 @@
 let menuBtn = document.querySelector('.menu-btn');
 let nav = document.querySelector('.navbar');
-let primaryNavItems = document.querySelectorAll('.primary-navigation__item button')
-let main = document.getElementsByClassName('main')
+let primaryNavItems = document.querySelectorAll('.primary-navigation__item button');
+let main = document.getElementsByClassName('main');
+
 // functions 
 
 let previousCompName = null;
@@ -31,7 +32,6 @@ async function loadComponent(compName) {
     } catch(err){
         console.log(err)
     }
-    
 }
 
 async function fetchData() {
@@ -55,18 +55,21 @@ function changeContent(mainParent, data, dKey){
 }
 
  async function handleSecondaryNavItems(e) {
-    let btnName = e.target.dataset.name
-    let pageName = e.target.parentElement.dataset.cat
+    let btnName = e.target.dataset.name;
+    let pageName = e.target.parentElement.dataset.cat;
+
     try {
-        const response = await fetch('starter-code/data.json')
+
+        const response = await fetch('starter-code/data.json');
         if (!response.ok){
-            throw new Error('cannot get data')
+            throw new Error('cannot get data');
         }
-        const data = await response.json()
-        const dataToUse = data[pageName].find(e => e['name'] === btnName)
-        Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key))
+
+        const data = await response.json();
+        const dataToUse = data[pageName].find(e => e['name'] === btnName);
+        Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key));
     }catch(err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
