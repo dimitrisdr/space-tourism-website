@@ -7,7 +7,7 @@ let main = document.getElementsByClassName('main');
 
 let previousCompName = null;
 async function loadComponent(compName) {
-    console.log(main)
+
     try {
         const response= await fetch(`components/${compName}.html`)
         if (!response.ok) {
@@ -47,11 +47,28 @@ async function fetchData() {
     }
 }
 
-function changeContent(mainParent, data, dKey){
-    let elToChange = mainParent[0].querySelector(`[data-name="${dKey}"]`)
-    if (!elToChange) return
-    if (elToChange.matches('img')) elToChange.setAttribute('src', 'starter-code/'+data[dKey]['png'].split('./')[1])
-    elToChange.innerText = data[dKey]
+function changeContent(mainParent, data, dKey, category){
+    let elToChange = mainParent[0].querySelectorAll(`[data-name="${dKey}"]`)
+
+    if (!elToChange.length === 0) return
+    elToChange.forEach(e=> {
+        if (e.matches('img')){
+
+            if (category !== 'tech'){
+                e.setAttribute('src', 'starter-code/'+data[dKey]['png'].split('./')[1])
+            } else {
+                e.setAttribute('src', 'starter-code/'+data[dKey]['landscape'].split('./')[1])
+            }
+    
+        }else if (e.matches('source')) {
+    
+            e.setAttribute('srcset', 'starter-code/'+data[dKey]['portrait'].split('./')[1])
+    
+        }else {
+            e.innerText = data[dKey]
+        }
+    })
+    
 }
 
  async function handleSecondaryNavItems(e) {
@@ -68,7 +85,8 @@ function changeContent(mainParent, data, dKey){
 
         const data = await response.json();
         const dataToUse = data[pageName].find(e => e['name'] === btnName);
-        Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key));
+
+        Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key, pageName));
     }catch(err) {
         console.log(err);
     }

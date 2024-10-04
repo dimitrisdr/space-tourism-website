@@ -11,13 +11,13 @@
     /* font-sizes */
     --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
     --fs-800: 3.5rem;
-    --fs-700: 2rem;
+    --fs-700: 1.5rem;
     --fs-600: 1rem;
-    --fs-500: 1.125rem;
+    --fs-500: 1.75rem;
     --fs-400: 0.9375rem;
     --fs-300: 1rem;
     --fs-200: 0.875rem;
-
+    
     /* font-families */
     --ff-serif: "Bellefair", serif;
     --ff-sans-cond: "Barlow Condensed", sans-serif;
@@ -210,6 +210,8 @@ li {
     line-height: 1.1;
 }
 
+
+
 /* ------------------- */
 /* Compontents         */
 /* ------------------- */
@@ -267,6 +269,8 @@ li {
     color: lime;
 }
 
+
+
 .primary-navigation__item:hover, 
 .primary-navigation__item:focus, 
 .secondary-navigation__item:hover, 
@@ -314,7 +318,6 @@ li {
     mask-image: linear-gradient(black 70%, transparent);
     max-width: 90%;
 }
-
 
 .img {
     margin-inline: auto;
@@ -389,7 +392,7 @@ li {
 }
 
 .number-indicators-item {
-    width: 2.5rem;
+    width: 4rem;
     aspect-ratio: 1;
     border-radius: 50%;
     border: 1px solid hsl( var(--clr-white) / .15);
@@ -521,7 +524,7 @@ li {
 
     }
 
-    .grid-container--crew{
+    .grid-container--crew {
         grid-area: content-c;
         text-align: left;
     }
@@ -533,7 +536,6 @@ li {
     .img-container--crew .img {
         mask-image: linear-gradient(black 70%, transparent);
         padding: 1rem;
-        max-width: 80%;
     }
 
     .main-header--destination {
@@ -554,20 +556,21 @@ li {
         grid-area: img-d;
     }
 
-
     .grid-container--destination {
         grid-area: content-d;
         text-align: left;
     }
 
+
+
     .main--tech {
-        grid-template-columns: minmax(0, 2em) minmax(0, 2rem) repeat(2, minmax(0,28rem)) minmax(0, 2em);
+        grid-template-columns: minmax(0, 2em) minmax(0, 4rem) minmax(0,40rem) minmax(0,25rem) minmax(0, 2em);
         grid-template-areas: '. header-t header-t header-t .'
                             '. numbers-t content-t img-t img-t';
         text-align: left;
-        /* align-self: center; */
+        gap: 2rem;
+        align-self: center;
         margin-bottom: 1rem;
-
     }
 
     .main-header--tech {
