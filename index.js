@@ -55,6 +55,7 @@ function changeContent(mainParent, data, dKey){
 }
 
  async function handleSecondaryNavItems(e) {
+
     let btnName = e.target.dataset.name;
     let pageName = e.target.parentElement.dataset.cat;
 
@@ -74,15 +75,19 @@ function changeContent(mainParent, data, dKey){
 }
 
 function navigateToPage(e) {
+
     const btn = e.target.closest('button');
     const catName = btn.dataset.name;
     loadComponent(catName)
+
 }
 
 function toggleMenu() {
+
     let isNavExpanded = nav.getAttribute('aria-expanded') === 'true' ? 'false':'true';
     nav.setAttribute('aria-expanded', isNavExpanded);
     menuBtn.setAttribute('data-opened', isNavExpanded);
+
 }
 
 // global event listeners
