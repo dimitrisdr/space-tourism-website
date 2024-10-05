@@ -13,7 +13,7 @@
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
-    --fs-500: 1.75rem;
+    --fs-500: 1rem;
     --fs-400: 0.9375rem;
     --fs-300: 1rem;
     --fs-200: 0.875rem;
@@ -27,6 +27,7 @@
 @media (min-width: 35em) {
     :root {
         --fs-800: 5rem;
+        --fs-500: 1.75rem;
         --fs-700: 2.5rem;
         --fs-600: 1.5rem;
         --fs-400: 1rem;
@@ -270,7 +271,6 @@ li {
 }
 
 
-
 .primary-navigation__item:hover, 
 .primary-navigation__item:focus, 
 .secondary-navigation__item:hover, 
@@ -383,12 +383,14 @@ li {
     transition: background-color 0.2s ease-in-out;
 }
 
-.dot-indicators-item[aria-selected="true"], .number-indicators-item[aria-selected="true"] {
-    background-color: hsl( var(--clr-white) / 1);
-}
-
 .dot-indicators-item:hover, .number-indicators-item:hover {
     background-color: hsl( var(--clr-white) / .45);
+}
+
+
+.dot-indicators-item[aria-selected="true"], .number-indicators-item[aria-selected="true"] {
+    background-color: hsl( var(--clr-white) );
+
 }
 
 .number-indicators-item {
@@ -470,7 +472,7 @@ li {
 }
 
 
-@media screen and (min-width:45em) {
+@media screen and (min-width:53em) {
 
     .row {
         display: unset;
@@ -491,10 +493,14 @@ li {
     }
 
     .main {
-        grid-template-columns: minmax(0, 2em) repeat(2, minmax(0,30rem)) minmax(0, 2em);
+        
         justify-content: space-between;
         align-self: flex-end;
         margin-bottom: 4rem;
+    }
+
+    .main--home {
+        grid-template-columns: minmax(0, 2em) repeat(2, minmax(0,30rem)) minmax(0, 2em);
     }
 
     .main--destination {
@@ -561,8 +567,6 @@ li {
         text-align: left;
     }
 
-
-
     .main--tech {
         grid-template-columns: minmax(0, 2em) minmax(0, 4rem) minmax(0,40rem) minmax(0,25rem) minmax(0, 2em);
         grid-template-areas: '. header-t header-t header-t .'
@@ -601,9 +605,10 @@ li {
         padding-right: 0;
     }
 
-
     .grid-container--home {
         grid-column: 2;
+        justify-self: flex-start;
+        text-align: left;
     }
 
     .btn-container {
@@ -657,7 +662,7 @@ li {
 
 }
 
-@media screen and (min-width:45em) {
+@media screen and (min-width:49em) {
 
     .home {
         background-image: url('starter-code/assets/home/background-home-desktop.jpg');

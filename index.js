@@ -75,7 +75,10 @@ function changeContent(mainParent, data, dKey, category){
 
     let btnName = e.target.dataset.name;
     let pageName = e.target.parentElement.dataset.cat;
-
+    let allItems = Array.from(e.target.parentElement.children)
+    console.log(allItems)
+    allItems.forEach(item => item.setAttribute('aria-selected',false))
+    e.target.setAttribute('aria-selected', true)
     try {
 
         const response = await fetch('starter-code/data.json');
