@@ -472,6 +472,7 @@ li {
     .main-header--crew, .main-header--destination, .main-header--tech {
         justify-self: flex-start;
         margin-left: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .menu-btn {
@@ -518,6 +519,10 @@ li {
 
     .main {
         margin-inline: auto;
+    }
+
+    .main-header--crew, .main-header--destination, .main-header--tech {
+        margin-left: unset;
     }
 
     .dot-indicators, .number-indicators {
