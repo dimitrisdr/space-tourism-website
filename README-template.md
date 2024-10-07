@@ -11,12 +11,8 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -30,20 +26,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.jpeg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://dimitrisdr.github.io/space-tourism-website/)
+- Solution URL: [Add solution URL here](https://github.com/dimitrisdr/space-tourism-website.git)
+- Live Site URL: [Add live site URL here]( https://dimitrisdr.github.io/space-tourism-website/)
 
 ## My process
 
@@ -54,59 +44,75 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
 
 ```html
 <h1>Some HTML code I'm proud of</h1>
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+    .main--destination {
+        grid-template-columns: minmax(0, 2em) minmax(0,32rem) minmax(0,28rem) minmax(0, 2em);
+        grid-template-areas: '. header-d header-d .' '. img-d content-d .';
+        gap: 4rem;
+        align-self: center;
+    }
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function changeContent(mainParent, data, dKey, category){
+    let elToChange = mainParent[0].querySelectorAll(`[data-name="${dKey}"]`)
+
+    if (!elToChange.length === 0) return
+    elToChange.forEach(e=> {
+        if (e.matches('img')){
+
+            if (category !== 'tech'){
+                e.setAttribute('src', 'starter-code/'+data[dKey]['png'].split('./')[1])
+            } else {
+                e.setAttribute('src', 'starter-code/'+data[dKey]['landscape'].split('./')[1])
+            }
+    
+        }else if (e.matches('source')) {
+    
+            e.setAttribute('srcset', 'starter-code/'+data[dKey]['portrait'].split('./')[1])
+    
+        }else {
+            e.innerText = data[dKey]
+        }
+    })
+    
+}
+
+ async function handleSecondaryNavItems(e) {
+
+    let btnName = e.target.dataset.name;
+    let pageName = e.target.parentElement.dataset.cat;
+    let allItems = Array.from(e.target.parentElement.children)
+
+    allItems.forEach(item => item.setAttribute('aria-selected',false))
+    e.target.setAttribute('aria-selected', true)
+    try {
+
+        const response = await fetch('starter-code/data.json');
+        if (!response.ok){
+            throw new Error('cannot get data');
+        }
+
+        const data = await response.json();
+        const dataToUse = data[pageName].find(e => e['name'] === btnName);
+
+        Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key, pageName));
+    }catch(err) {
+        console.log(err);
+    }
 }
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/dimitrisdr)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+I would like to personally thank Scrimba and Kevin Powell for inspiring me to complete the project. The course I attended, in particular, helped me learn many useful things that I will definitely use in the future. 
+Here is the course link if someone want's to attend: https://scrimba.com/learn/spacetravel.

@@ -557,7 +557,6 @@ li {
                             '. dots img-c .';
         grid-template-columns: minmax(0, 2em) minmax(0,35rem) minmax(0,27rem) minmax(0, 2em);
 
-        
     }
 
     .main-header--crew  {
