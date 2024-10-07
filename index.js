@@ -34,18 +34,18 @@ async function loadComponent(compName) {
     }
 }
 
-async function fetchData() {
-    try {
-        const response = await fetch('starter-code/data.json')
-        if (!response.ok){
-            throw new Error('cannot get data')
-        }
-        const data = await response.json()
+// async function fetchData() {
+//     try {
+//         const response = await fetch('starter-code/data.json')
+//         if (!response.ok){
+//             throw new Error('cannot get data')
+//         }
+//         const data = await response.json()
 
-    }catch(err) {
-        console.log(err)
-    }
-}
+//     }catch(err) {
+//         console.log(err)
+//     }
+// }
 
 function changeContent(mainParent, data, dKey, category){
     let elToChange = mainParent[0].querySelectorAll(`[data-name="${dKey}"]`)
@@ -76,7 +76,7 @@ function changeContent(mainParent, data, dKey, category){
     let btnName = e.target.dataset.name;
     let pageName = e.target.parentElement.dataset.cat;
     let allItems = Array.from(e.target.parentElement.children)
-    console.log(allItems)
+
     allItems.forEach(item => item.setAttribute('aria-selected',false))
     e.target.setAttribute('aria-selected', true)
     try {
