@@ -115,4 +115,4 @@ function changeContent(mainParent, data, dKey, category){
 ## Acknowledgments
 
 I would like to personally thank Scrimba and Kevin Powell for inspiring me to complete the project. The course I attended, in particular, helped me learn many useful things that I will definitely use in the future. 
-Here is the course link if someone want's to attend: https://scrimba.com/learn/spacetravel.
+Here is the course link if someone want's to attend: [@Scrimba Space Travel](https://scrimba.com/learn/spacetravel).
