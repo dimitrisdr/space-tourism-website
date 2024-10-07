@@ -411,11 +411,10 @@ li {
         background-repeat: no-repeat;
         width: 1.5rem;
         aspect-ratio: 1;
-        position: absolute;
+        position: fixed;
         z-index: 10000;
         right: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 2.5rem;
     }
 
     .menu-btn[data-opened="true"] {
