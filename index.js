@@ -11,7 +11,7 @@ async function loadComponent(compName) {
     try {
         const response= await fetch(`components/${compName}.html`)
         if (!response.ok) {
-            throw new Error('failed to load component')
+            throw new Error('failed to load component');
         }
         const thiscomponent = await response.text()
         let body = document.querySelector('body');
@@ -59,10 +59,10 @@ function changeContent(mainParent, data, dKey, category){
 }
 
  async function handleSecondaryNavItems(e) {
-
-    let btnName = e.target.dataset.name;
-    let pageName = e.target.parentElement.dataset.cat;
-    let allItems = Array.from(e.target.parentElement.children)
+    let thisBtn = e.target.closest('button')
+    let btnName = thisBtn.dataset.name;
+    let pageName = thisBtn.parentElement.dataset.cat;
+    let allItems = Array.from(thisBtn.parentElement.children)
 
     allItems.forEach(item => item.setAttribute('aria-selected',false))
     e.target.setAttribute('aria-selected', true)
@@ -83,8 +83,12 @@ function changeContent(mainParent, data, dKey, category){
 }
 
 function navigateToPage(e) {
-
     const btn = e.target.closest('button');
+    console.log(btn)
+    let btnParentLi = btn.parentElement;
+    let liParentChildren = Array.from(btn.parentElement.parentElement.children);
+    liParentChildren.forEach(child => child.setAttribute('aria-selected', 'false'))
+    btnParentLi.setAttribute('aria-selected', 'true')
     const catName = btn.dataset.name;
     loadComponent(catName)
 
@@ -117,4 +121,3 @@ primaryNavItems.forEach(item => item.addEventListener('click', navigateToPage))
 //         console.log(err)
 //     }
 // }
-
