@@ -48,7 +48,12 @@ Users should be able to:
 ### What I learned
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+    <div data-cat="crew" role="tablist" class="dot-indicators flex">
+        <button data-name="Douglas Hurley" role="tab" aria-selected="true"  class="dot-indicators-item" aria-selected="true"><span class="sr-only">Slide title</span></button>
+        <button data-name="Mark Shuttleworth" role="tab" aria-selected="false" class="dot-indicators-item" aria-selected="false"><span class="sr-only">Slide title</span></button>
+        <button data-name="Victor Glover" role="tab" aria-selected="false" class="dot-indicators-item" aria-selected="false"><span class="sr-only">Slide title</span></button>
+        <button data-name="Anousheh Ansari" role="tab" aria-selected="false" class="dot-indicators-item" aria-selected="false"><span class="sr-only">Slide title</span></button>
+    </div>
 ```
 ```css
     .main--destination {
