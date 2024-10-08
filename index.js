@@ -84,7 +84,6 @@ function changeContent(mainParent, data, dKey, category){
 
 function navigateToPage(e) {
     const btn = e.target.closest('button');
-    console.log(btn)
     let btnParentLi = btn.parentElement;
     let liParentChildren = Array.from(btn.parentElement.parentElement.children);
     liParentChildren.forEach(child => child.setAttribute('aria-selected', 'false'))
@@ -109,15 +108,3 @@ primaryNavItems.forEach(item => item.addEventListener('click', navigateToPage))
 
 //  main
 
-// async function fetchData() {
-//     try {
-//         const response = await fetch('starter-code/data.json')
-//         if (!response.ok){
-//             throw new Error('cannot get data')
-//         }
-//         const data = await response.json()
-
-//     }catch(err) {
-//         console.log(err)
-//     }
-// }
