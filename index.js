@@ -35,26 +35,27 @@ async function loadComponent(compName) {
 }
 
 function changeContent(mainParent, data, dKey, category){
-    let elToChange = mainParent[0].querySelectorAll(`[data-name="${dKey}"]`)
+    let elToChange = mainParent[0].querySelector(`[data-name="${dKey}"]`)
 
-    if (!elToChange.length === 0) return
-    elToChange.forEach(e=> {
-        if (e.matches('img')){
+    if (!elToChange) return
 
-            if (category !== 'tech'){
-                e.setAttribute('src', 'starter-code/'+data[dKey]['png'].split('./')[1])
-            } else {
-                e.setAttribute('src', 'starter-code/'+data[dKey]['landscape'].split('./')[1])
-            }
-    
-        }else if (e.matches('source')) {
-    
-            e.setAttribute('srcset', 'starter-code/'+data[dKey]['portrait'].split('./')[1])
-    
-        }else {
-            e.innerText = data[dKey]
+    if (elToChange.matches('picture')){
+        let picElements = elToChange.children ;
+
+        for (let i=0; i < picElements.length; i++){
+            
+            const attrToChange = picElements[i].matches('source') ? 'srcset': 'src';
+            const dataForUpdate = picElements[i].matches('source') ? data[dKey][Object.keys(data[dKey])[1]]: data[dKey][Object.keys(data[dKey])[0]];
+            picElements[i].setAttribute(attrToChange, 'starter-code/'+dataForUpdate.split('./')[1]);
+        
         }
-    })
+
+    }else {
+
+        elToChange.innerText = data[dKey];
+
+    }
+
     
 }
 
@@ -69,14 +70,15 @@ function changeContent(mainParent, data, dKey, category){
     try {
 
         const response = await fetch('starter-code/data.json');
+
         if (!response.ok){
             throw new Error('cannot get data');
         }
 
         const data = await response.json();
         const dataToUse = data[pageName].find(e => e['name'] === btnName);
-
         Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key, pageName));
+
     }catch(err) {
         console.log(err);
     }
