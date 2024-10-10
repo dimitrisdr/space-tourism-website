@@ -1,7 +1,7 @@
 let menuBtn = document.querySelector('.menu-btn');
 let nav = document.querySelector('.navbar');
 let primaryNavItems = document.querySelectorAll('.primary-navigation__item button');
-let main = document.getElementsByClassName('main');
+let main = document.getElementsByClassName('main')[0];
 let body = document.querySelector('body')
 // functions 
 
@@ -31,7 +31,7 @@ function loadComponent(compName){
 
 
 function changeContent(mainParent, data, dKey){
-    let elToChange = mainParent[0].querySelector(`[data-name="${dKey}"]`)
+    let elToChange = mainParent.querySelector(`[data-name="${dKey}"]`)
 
     if (!elToChange) return
 
@@ -69,10 +69,14 @@ function changeContent(mainParent, data, dKey){
         if (!response.ok){
             throw new Error('cannot get data');
         }
-
-        const data = await response.json();
-        const dataToUse = data[pageName].find(e => e['name'] === btnName);
-        Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key, pageName));
+        main.classList.add('fade-out')
+        main.addEventListener('transitionend', async function handleTransitions(){
+            main.removeEventListener('transitionend', handleTransitions)
+            const data = await response.json();
+            const dataToUse = data[pageName].find(e => e['name'] === btnName);
+            Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key, pageName));
+            main.classList.remove('fade-out')
+        })
 
     }catch(err) {
         console.log(err);
@@ -86,8 +90,7 @@ function navigateToPage(e) {
     liParentChildren.forEach(child => child.setAttribute('aria-selected', 'false'))
     btnParentLi.setAttribute('aria-selected', 'true')
     const catName = btn.dataset.name;
-    loadComponent(catName)
-
+    loadComponent(catName);
 }
 
 function toggleMenu() {
