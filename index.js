@@ -2,39 +2,35 @@ let menuBtn = document.querySelector('.menu-btn');
 let nav = document.querySelector('.navbar');
 let primaryNavItems = document.querySelectorAll('.primary-navigation__item button');
 let main = document.getElementsByClassName('main');
-
+let body = document.querySelector('body')
 // functions 
 
-let previousCompName = null;
-async function loadComponent(compName) {
+let previousCompName = 'home';
 
-    try {
-        const response= await fetch(`components/${compName}.html`)
-        if (!response.ok) {
-            throw new Error('failed to load component');
-        }
+
+function loadComponent(compName){
+
+    const main = document.querySelector('main')
+    const body = document.querySelector('body')
+    main.classList.add('fade-out')
+    main.addEventListener('transitionend', async function trackTransitionEnd() {
+        main.removeEventListener('transitionend', trackTransitionEnd)
+        const response = await fetch(`components/${compName}.html`)
         const thiscomponent = await response.text()
-        let body = document.querySelector('body');
+        main.innerHTML = thiscomponent;
+        main.classList.remove('fade-out', `main--${previousCompName}`)
         body.classList.remove(previousCompName)
-        body.classList.add(compName);
+        body.classList.add(compName)
+        main.classList.add(`main--${compName}`)
         previousCompName = compName
-        let main = document.querySelector('main');
-        if (main.classList.contains(`main--${compName}`)) return
-        body.removeChild(main);
-        let mainToLoad = document.createElement('main')
-        mainToLoad.className = `main main--${compName} grid`
-        mainToLoad.innerHTML = thiscomponent
-        body.appendChild(mainToLoad)
         let secondaryNavItems = body.querySelectorAll('[role="tablist"]')
         if (!secondaryNavItems) return
         secondaryNavItems.forEach(item => item.addEventListener('click', handleSecondaryNavItems))
-
-    } catch(err){
-        console.log(err)
-    }
+    })
 }
 
-function changeContent(mainParent, data, dKey, category){
+
+function changeContent(mainParent, data, dKey){
     let elToChange = mainParent[0].querySelector(`[data-name="${dKey}"]`)
 
     if (!elToChange) return
@@ -56,7 +52,6 @@ function changeContent(mainParent, data, dKey, category){
 
     }
 
-    
 }
 
  async function handleSecondaryNavItems(e) {

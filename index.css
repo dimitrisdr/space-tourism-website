@@ -294,6 +294,12 @@ li {
     text-align: center;
     place-items: center;
     margin-bottom: 2rem;
+    opacity: 1;
+    transition:opacity 0.2s ease-in-out;
+}
+
+.main.fade-out {
+    opacity: 0;
 }
 
 .grid-container {
