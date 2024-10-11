@@ -404,6 +404,10 @@ li {
     color: hsl( var(--clr-dark) );
 }
 
+.main-header--home span {
+    margin-top: .5rem;
+}
+
 @media screen and (max-width:34.999em) {
 
     .menu-btn {
