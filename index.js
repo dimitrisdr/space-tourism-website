@@ -75,6 +75,18 @@ function changeContent(mainParent, data, dKey){
             const data = await response.json();
             const dataToUse = data[pageName].find(e => e['name'] === btnName);
             Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key, pageName));
+            const images = Array.from(main.querySelectorAll('img'))
+            console.log(images)
+            await Promise.all(images.map(img=> {
+                return new Promise(resolve => {
+                    if (img.complete){
+                        resolve()
+                    }else {
+                        img.onload = resolve
+                        img.onerror = resolve
+                    }
+                })
+            }));
             main.classList.remove('fade-out')
         })
 
