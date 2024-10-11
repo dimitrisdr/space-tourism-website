@@ -23,6 +23,8 @@ function loadComponent(compName){
         body.classList.add(compName)
         main.classList.add(`main--${compName}`)
         previousCompName = compName
+        nav.setAttribute('aria-expanded', 'false')
+        menuBtn.setAttribute('data-opened', 'false')
         let secondaryNavItems = body.querySelectorAll('[role="tablist"]')
         if (!secondaryNavItems) return
         secondaryNavItems.forEach(item => item.addEventListener('click', handleSecondaryNavItems))
@@ -54,13 +56,18 @@ function changeContent(mainParent, data, dKey){
 
 }
 
- async function handleSecondaryNavItems(e) {
+let previousSelectedCat
+
+async function handleSecondaryNavItems(e) {
+    previousSelectedCat = Array.from(main.querySelectorAll('[role="tab"]')).find(e => e.getAttribute('aria-selected') === 'true').dataset.name
     let thisBtn = e.target.closest('button')
     let btnName = thisBtn.dataset.name;
+    if (btnName === previousSelectedCat) return
+    previousSelectedCat = btnName
     let pageName = thisBtn.parentElement.dataset.cat;
     let allItems = Array.from(thisBtn.parentElement.children)
 
-    allItems.forEach(item => item.setAttribute('aria-selected',false))
+    allItems.forEach(item => item.setAttribute('aria-selected', false))
     e.target.setAttribute('aria-selected', true)
     try {
 
@@ -76,7 +83,6 @@ function changeContent(mainParent, data, dKey){
             const dataToUse = data[pageName].find(e => e['name'] === btnName);
             Object.keys(dataToUse).forEach(key => changeContent(main, dataToUse, key, pageName));
             const images = Array.from(main.querySelectorAll('img'))
-            console.log(images)
             await Promise.all(images.map(img=> {
                 return new Promise(resolve => {
                     if (img.complete){
@@ -102,6 +108,7 @@ function navigateToPage(e) {
     liParentChildren.forEach(child => child.setAttribute('aria-selected', 'false'))
     btnParentLi.setAttribute('aria-selected', 'true')
     const catName = btn.dataset.name;
+    if (catName === previousCompName) return
     loadComponent(catName);
 }
 
