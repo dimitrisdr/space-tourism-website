@@ -530,7 +530,7 @@ li {
     .main--home {
         grid-template-columns: minmax(0, 2em) minmax(0,45rem) minmax(0,35rem) minmax(0, 2em);
         align-self: flex-end;
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
         justify-content: space-between;
     }
 
