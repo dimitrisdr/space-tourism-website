@@ -265,7 +265,7 @@ li {
 }
 
 
-.secondary-navigation__item[aria-selected="true"], .primary-navigation__item[aria-selected="true"] {
+.secondary-navigation__item[aria-selected="true"], .primary-navigation__item[data-selected="true"] {
     border-bottom: 2px solid hsl(var(--clr-white));
 }
 

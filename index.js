@@ -105,8 +105,8 @@ function navigateToPage(e) {
     const btn = e.target.closest('button');
     let btnParentLi = btn.parentElement;
     let liParentChildren = Array.from(btn.parentElement.parentElement.children);
-    liParentChildren.forEach(child => child.setAttribute('aria-selected', 'false'))
-    btnParentLi.setAttribute('aria-selected', 'true')
+    liParentChildren.forEach(child => child.setAttribute('data-selected', 'false'))
+    btnParentLi.setAttribute('data-selected', 'true')
     const catName = btn.dataset.name;
     if (catName === previousCompName) return
     loadComponent(catName);
